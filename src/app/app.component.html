@@ -1,1 +1,15 @@
-<h1 class="text-3xl">hello world</h1>
+
+<div class="container">
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/my-module/disk">Empty disk</a></li>
+    <li><a routerLink="/my-module/disk/test">Given disk</a></li>
+    <li><a routerLink="/my-module/disk/test/folder">Empty folder</a></li>
+    <li><a routerLink="/my-module/disk/another/folder/test">Given folder</a></li>
+    <li><a routerLink="/my-module/disk/another/folder/test/file">Empty file</a></li>
+    <li><a routerLink="/my-module/disk/another/folder/test/file/gigel.txt">Given file</a></li>
+  </ul>
+  <div class="logs"></div>
+</div>
+
+<router-outlet></router-outlet>
