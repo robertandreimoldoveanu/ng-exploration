@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Route, UrlSegmentGroup } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, delay } from 'rxjs/operators';
 import { UrlMatchResult, UrlSegment } from "@angular/router";
@@ -20,9 +20,12 @@ export class CustomResolver implements Resolve<any> {
 
 
 
-export function matcherWithParam(allowedParams: Array<string>): (segments: UrlSegment[]) => UrlMatchResult {
-    return function (segments: UrlSegment[]): UrlMatchResult {
+export function matcherWithParam(allowedParams: Array<string>): (segments: UrlSegment[], group: UrlSegmentGroup, route: Route) => UrlMatchResult {
+    return function (segments, group, route): UrlMatchResult {
+        debugger;
         const numberOfSegments = segments.length;
+        // console.log(`#${numberOfSegments} Segments:`, [...segments]);
+        // console.log('Group:', group.toString());
         if (numberOfSegments === 0) {
             return <UrlMatchResult>(null as any);
         }

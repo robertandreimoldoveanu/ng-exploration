@@ -6,13 +6,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './my-module.component.html',
   styleUrls: ['./my-module.component.scss']
 })
-export class MyModuleComponent implements OnDestroy {
+export class MyComponent implements OnDestroy {
 
   static id = 0;
 
   paramsArray: Array<Record<string, string>> = [];
   constructor(private route: ActivatedRoute) {
-    document.querySelector('.logs')?.appendChild(document.createTextNode('MyModuleComponent constructor' + ++MyModuleComponent.id ));
+    document.querySelector('.logs')?.appendChild(document.createTextNode('MyModuleComponent constructor' + ++MyComponent.id ));
     document.querySelector('.logs')?.appendChild(document.createElement('br'));
 
     this.route.data.subscribe(data => {
@@ -41,7 +41,7 @@ export class MyModuleComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    document.querySelector('.logs')?.appendChild(document.createTextNode('MyModuleComponent ngOnDestroy' + MyModuleComponent.id ));
+    document.querySelector('.logs')?.appendChild(document.createTextNode('MyModuleComponent ngOnDestroy' + MyComponent.id ));
     document.querySelector('.logs')?.appendChild(document.createElement('br'));
   }
 }

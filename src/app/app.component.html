@@ -1,15 +1,15 @@
-
-<div class="container">
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/my-module/disk">Empty disk</a></li>
-    <li><a routerLink="/my-module/disk/test">Given disk</a></li>
-    <li><a routerLink="/my-module/disk/test/folder">Empty folder</a></li>
-    <li><a routerLink="/my-module/disk/another/folder/test">Given folder</a></li>
-    <li><a routerLink="/my-module/disk/another/folder/test/file">Empty file</a></li>
-    <li><a routerLink="/my-module/disk/another/folder/test/file/gigel.txt">Given file</a></li>
+<div class="flex flex-row basis-full m-8 ">
+  <ul class="underline grow-1 w-64">
+    <li *ngFor="let link of links" class="pb-2 min-w-48 w-24">
+      <a [routerLink]="link.route" routerLinkActive="text-sky-600" class="hover:text-sky-600">{{ link.label }}</a>
+    </li>
   </ul>
-  <div class="logs"></div>
-</div>
 
-<router-outlet></router-outlet>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="m-8">
+  <input [(ngModel)]="url" type="text" class=" w-full border-solid border-2" />
+  <button (click)="navigate()" class="px-4 mt-4 border-solid border-2 hover:bg-slate-500">Navigate</button>
+</div>
